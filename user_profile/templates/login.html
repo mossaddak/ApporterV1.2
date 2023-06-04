@@ -1,0 +1,43 @@
+{% extends 'user_base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block user_content %}
+
+<div>
+
+
+    <h5 class="roboto_font acoount_user_header">Sing In</h5>
+
+    {% for message in messages %}
+
+                        {% include 'message.html' %}
+
+                        {% endfor %}
+    <form action="" method="POST" class="needs-validation">
+      {% csrf_token %}
+
+   
+      <!-- username -->
+        <div class="mb-3">
+          <input type="text" name="username" class="form-control roboto_font" id="loginhEmail" placeholder="Username" aria-describedby="emailHelp" required>
+          <div class="py-1 text-danger errors">{{ form.username.errors }}</div>
+        </div>
+
+        <!-- password -->
+        <div class="mb-3">
+          <input type="password" name="password" class="form-control roboto_font" id="loginPassword" placeholder="Password" required>
+          <div class="py-1 text-danger errors">{{ form.password.errors }}</div>
+        </div>
+        <button type="submit" class="submit_btn btn roboto_font text-center d-block">Sing In</button>
+    </form>
+
+    <a href="#!" class="google_icon_container btn my-3">
+        <img src="{% static 'icons/google.png' %}" class="google_icon"> &#160;Sing in with Google
+    </a>
+    <div class="dont_have_account_container roboto_font">
+        <div>Don't have an account yet?</div>
+        <a href="{% url 'singup' %}">Sing Up Now</a>
+    </div>
+</div>
+{% endblock %}

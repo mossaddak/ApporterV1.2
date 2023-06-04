@@ -1,0 +1,72 @@
+{% extends 'user_base.html' %}
+{% load static %}
+{% block title %}Sing Up{% endblock %}
+
+{% block user_content %}
+
+<div>
+    <h5 class="roboto_font acoount_user_header">Sing Up</h5>
+    <form action="" method="POST" class="needs-validation">
+        {% csrf_token %} 
+
+        <!-- username -->
+        <div class="mb-3">
+            <input type="text" class="form-control roboto_font" id="loginhEmail" name="username" placeholder="Username" aria-describedby="emailHelp" required>
+            <!-- error message -->
+            <div class="py-1 text-danger errors">{{ form.username.errors }}</div>
+        </div>
+        
+
+        <!-- first name -->
+        <div class="mb-3">
+            <input type="text" class="form-control roboto_font" id="loginhEmail" name="first_name" placeholder="First Name" aria-describedby="emailHelp" required>
+            <!-- error message -->
+            <div class="py-1 text-danger errors">{{ form.first_name.errors }}</div>
+        </div>
+        
+
+        <!-- last name -->
+        <div class="mb-3">
+            <input type="text" class="form-control roboto_font" id="loginhEmail" name="last_name" placeholder="Last Name" aria-describedby="emailHelp" required>
+            <!-- error message -->
+            <div class="py-1 text-danger errors">{{ form.last_name.errors }}</div>
+        </div>
+        
+
+        <!-- email -->
+        <div class="mb-3">
+            <input type="email" class="form-control roboto_font" id="loginhEmail" name="email" placeholder="Email" aria-describedby="emailHelp" required>
+            <!-- error message -->
+            <div class="py-1 text-danger errors">{{ form.email.errors }}</div>
+        </div>
+        
+
+
+        <!-- password -->
+        <div class="mb-3">
+            <input type="password" name="password" class="form-control roboto_font" id="password" placeholder="Password" required>
+            <!-- error message -->
+            <div class="py-1 text-danger errors">{{ form.password.errors }}</div>
+        </div>
+        
+
+        <!-- confirm password -->
+        <div class="mb-3">
+            <input type="password" name="confirm_password" class="form-control roboto_font" id="password" placeholder="Confirm Password" required>
+            <!-- error message -->
+            <div class="py-1 text-danger errors">{{ form.password.errors }}</div>
+        </div>
+        
+
+        <button type="submit" class="submit_btn btn roboto_font text-center d-block">Sing Up</button>
+    </form>
+
+    <a href="#!" class="google_icon_container btn my-3">
+        <img src="{% static 'icons/google.png' %}" class="google_icon"> &#160;Sing in with Google
+    </a>
+    <div class="dont_have_account_container roboto_font">
+        <div>Have an account yet?</div>
+        <a href="{% url 'login' %}">Sing In Now</a>
+    </div>
+</div>
+{% endblock %}

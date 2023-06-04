@@ -1,0 +1,68 @@
+.account_form_left_side{
+    background-color: #041532;
+}
+
+.account_form_right_side{
+    background-color: #11213E;
+}
+.user_account_base{
+    height:100vh;
+    overflow: hidden;
+}
+.user_account_base{
+    color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user_account_base img{
+    max-width: 100%;
+}
+
+.acoount_user_header{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.form-control{
+    background-color: #11213E !important;
+    border: 1px solid white;
+    border-radius: 8px;
+    color: white !important;
+}
+
+.submit_btn{
+    background-color: white;
+    color: black !important;
+    padding: 5px 90px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.5s;
+}
+.google_icon{
+    width: 20px;
+    
+}
+.google_icon_container{
+    background-color: white;
+    padding: 5px 33px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.5s;
+}
+.submit_btn:hover{
+    background-color: #47ABFF;
+}
+.google_icon_container:hover{
+    background-color: #555b65;
+}
+.dont_have_account_container{
+    background-color: white;
+    text-align: center;
+    color: black;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 15px;
+}
