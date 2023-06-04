@@ -27,7 +27,7 @@ def SingUpView(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data.get('password'))
             user.save()
-            messages.success(request, "Registrations Successfully done!")
+            messages.success(request, "Registrations Successfull!")
             return redirect("/")
         else:
             print(form.errors)
@@ -56,7 +56,7 @@ def LoginView(request):
                 return redirect("home")
 
             else:
-                messages.warning(request, "You've given wron information, try again!")
+                messages.warning(request, "Wrong information!")
                 return redirect("/")
 
     context = {
