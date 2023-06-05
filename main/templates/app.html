@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}App{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .apps{
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        color: #1f2937;
+    }
+    .add_app_btn{
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #ffffff;
+        background-color: black;
+    }
+    .app_link{
+        text-decoration: none;
+        color:#1f2937;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        transition: 0.5s;
+    }
+    .app_link:hover{
+        color:#7086a5 !important;
+    }
+    .app_link:first-child{
+        background-color: #FA4F4F;
+    }
+    .app_link:nth-child(2){
+        background-color: #5DB4FD;
+    }
+    .app_link:last-child{
+        background-color: #FABF4D;
+    }
+    .red{
+        background-color: #FA4F4F;
+    }
+    .blue{
+        background-color: #5DB4FD;
+    }
+    .yellow{
+        background-color: #FABF4D;
+    }
+    .green{
+        background-color: #62F19D;
+    }
+    th{
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 16px;
+        color: #000000;
+    }
+    thead{
+        background-color: #F2F2F2;
+        border-radius: 5px 5px 0px 0px;
+    }
+    td{
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #6b7280;
+    }
+
+
+</style>
+
+<div class="container">
+
+    <div class="d-flex mt-4">
+
+
+        <div class="d-flex roboto_font">
+            <div class="apps">Apps</div>&#160;
+            <button class="add_app_btn btn btn-dark"><i class="far fa-plus-circle"></i>&#160;Add App</button>
+        </div>
+
+
+        <div class="ms-auto">
+            <a href="#!" class="roboto_font app_link mx-1 p-2"><i class="fas fa-trash-alt"></i> Remove Apps</a>
+            <a href="#!" class="roboto_font app_link mx-1 p-2"><i class="fab fa-youtube"></i> Ressume Campaigns</a>
+            <a href="#!" class="roboto_font app_link mx-1 p-2"><i class="far fa-pause-circle"></i> Pause Campaigns</a>
+        </div>
+
+    </div>
+
+
+    <div class="app_table">
+        <table class="table mt-5">
+            <thead class="">
+              <tr class="py-5">
+                <th scope="col py-5">APP NAME</th>
+                <th scope="col py-5">PACKEGE</th>
+                <th scope="col py-5">REVIEWS</th>
+                <th scope="col py-5">INSTALLS</th>
+                <th scope="col py-5">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+
+                    
+                {% for campaign in campaigns %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{campaign.package_id}}</td>
+                    <td>{{campaign.reviews_count}}</td>
+                    <td>{{campaign.installs_count}}</td>
+                    <td><label
+                        class="p-1 {% if campaign.status == 'paused' %}yellow {% elif campaign.status == 'Ongoing' %}blue {% elif campaign.status == 'Completed' %}green{% endif %}"
+                        
+                        >{{campaign.status}}</label></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    
+
+
+</div>
+
+{% endblock %}

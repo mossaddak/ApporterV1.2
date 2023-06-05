@@ -22,6 +22,7 @@
     <!--external css =========================-->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/user_base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
 
 
     <title>{% block title %}{% endblock %}</title>
@@ -53,7 +54,7 @@
                             <a class="nav-link" href="#">Packeges</a>
                         </li>
                         <li class="nav-item mx-1">
-                            <a class="nav-link" href="#">Apps</a>
+                            <a class="nav-link" href="{% url 'app' %}">Apps</a>
                         </li>
                         <li class="nav-item mx-1">
                             <a class="nav-link" href="#">Keywords</a>

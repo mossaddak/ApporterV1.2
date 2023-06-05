@@ -1,0 +1,13 @@
+.apps{
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 36px;
+    color: #1f2937;
+}
+.add_app_btn{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #ffffff;
+    background-color: black;
+}
