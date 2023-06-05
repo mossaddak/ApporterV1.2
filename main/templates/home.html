@@ -5,7 +5,54 @@
 
 {% block content %}
 <style>
-    
+    .dropdown-toggle{
+        background-color: #EEEEEE;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 28px;
+        color: #1f2937;
+    }
+    .pause_campaing{
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 24px;
+        color: #cbdbf3;
+        background-color: #62A9F8;
+
+    }
+    .campaing_score{
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        clear: #1f2937;
+    }
+    .d-flex{
+        flex-wrap: wrap;
+    }
 </style>
+
+<section class="container">
+    <div class="d-flex mt-4">
+        <div class="roboto_font campaing_score">Campaigns Score</div>
+
+        <div class="d-flex ms-auto">
+            <div class="dropdown my-1">
+                <button class="btn dropdown-toggle mx-2 roboto_font" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item roboto_font" href="#">Action</a></li>
+                  <li><a class="dropdown-item roboto_font" href="#">Another action</a></li>
+                  <li><a class="dropdown-item roboto_font" href="#">Something else here</a></li>
+                </ul>
+            </div>
+
+            <div class="mx-2 my-1">
+                <a href="#!" class="pause_campaing btn roboto_font"><i class="far fa-pause-circle"></i> &#160;Pause Campaigns</a>
+            </div>
+        </div>
+    </div>
+
+</section>
 
 {% endblock %}
