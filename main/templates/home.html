@@ -29,12 +29,41 @@
     .d-flex{
         flex-wrap: wrap;
     }
+    .your_report{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        color: #1f2937;
+    }
+    .your_report_icon{
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 24px;
+        color: #1f2937;
+    }
+    .your_report_count{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 28px;
+        color: #424243;
+    }
+    .your_apporter_review{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #aeb0af;
+    }
+    .card{
+        background-color: #EEEEEE;
+        padding: 30px 40px;
+    }
 </style>
 
 <section class="container">
     <div class="d-flex mt-4">
         <div class="roboto_font campaing_score">Campaigns Score</div>
 
+        <!-- header -->
         <div class="d-flex ms-auto">
             <div class="dropdown my-1">
                 <button class="btn dropdown-toggle mx-2 roboto_font" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,6 +78,40 @@
 
             <div class="mx-2 my-1">
                 <a href="#!" class="pause_campaing btn roboto_font"><i class="far fa-pause-circle"></i> &#160;Pause Campaigns</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- your report-->
+    <div class="d-flex">
+        <h1 class="your_report">Your Report</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card ">
+                    <div class="your_report_icon my-2"><i class="fas fa-comment-lines"></i></div>
+                    <div class="roboto_font your_report_count my-2">21</div>
+                    <p class="roboto_font your_apporter_review my-2">Apporter review givens</p>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card ">
+                    <div class="your_report_icon my-2"><i class="fas fa-cloud-download"></i></div>
+                    <div class="roboto_font your_report_count my-2">21</div>
+                    <p class="roboto_font your_apporter_review my-2">Apporter review givens</p>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card ">
+                    <div class="your_report_icon my-2"><i class="fas fa-star"></i></div>
+                    <div class="roboto_font your_report_count my-2">21</div>
+                    <p class="roboto_font your_apporter_review my-2">Apporter review givens</p>
+                </div>
             </div>
         </div>
     </div>
