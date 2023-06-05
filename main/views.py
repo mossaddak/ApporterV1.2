@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import(
-    campaign
+    campaign,
+    app
 )
 
 # Create your views here.
@@ -10,7 +11,7 @@ def HomeView(request):
 
 
     context = {
-        
+        "app":app.objects.all()
     }
     return render(request, 'home.html', context)
 
