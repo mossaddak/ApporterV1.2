@@ -18,7 +18,6 @@ from .models import(
 # Create your views here.
 @never_cache
 def SingUpView(request):
-
     form = UserRegistrations()
     if request.method == "POST":
         form = UserRegistrations(request.POST)
@@ -42,7 +41,6 @@ def SingUpView(request):
 @never_cache
 @not_logged_in_required
 def LoginView(request):
-
     login_form = LoginForm()
     if request.method == "POST":
         login_form = LoginForm(request.POST)
@@ -54,11 +52,9 @@ def LoginView(request):
             if user:
                 login(request, user)
                 return redirect("home")
-
             else:
                 messages.warning(request, "Wrong information!")
                 return redirect("/")
-
     context = {
         "login_form": login_form
     }

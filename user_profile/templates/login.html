@@ -1,6 +1,8 @@
 {% extends 'user_base.html' %}
 {% load static %}
 {% block title %}Login{% endblock %}
+{% load socialaccount %}
+{% providers_media_js %}
 
 {% block user_content %}
 
@@ -8,12 +10,9 @@
 
 
     <h5 class="roboto_font acoount_user_header">Sing In</h5>
-
     {% for message in messages %}
-
-                        {% include 'message.html' %}
-
-                        {% endfor %}
+    {% include 'message.html' %}
+    {% endfor %}
     <form action="" method="POST" class="needs-validation">
       {% csrf_token %}
 
@@ -32,7 +31,7 @@
         <button type="submit" class="submit_btn btn roboto_font text-center d-block">Sing In</button>
     </form>
 
-    <a href="#!" class="google_icon_container btn my-3">
+    <a href="{% provider_login_url 'google' %}?next=/" class="google_icon_container btn my-3">
         <img src="{% static 'icons/google.png' %}" class="google_icon"> &#160;Sing in with Google
     </a>
     <div class="dont_have_account_container roboto_font">

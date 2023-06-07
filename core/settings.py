@@ -47,7 +47,19 @@ INSTALLED_APPS = [
 
     #main
     'main', #custom
+
+    #google authentication
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',#google provider 
 ]
+
+
+SITE_ID = 1
+SOCIALACCOUNT_LOGIN_ON_GET = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,6 +140,25 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [STATIC_DIR]
 
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+
 # MESSAGE_TAGS = {
 #     messages.ERROR : 'danger'
 # }
@@ -137,3 +168,10 @@ STATICFILES_DIRS = [STATIC_DIR]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'user_profile.User'
+
+
+
+#LOGIN_REDIRECT_URL = 'main/home'
+
+# CLIENT_ID = "331826477403-1cbeg4htn27o3mf968gbm0s2u4m3vkfc.apps.googleusercontent.com"
+# CLIENT_SECRET = "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"

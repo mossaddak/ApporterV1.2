@@ -10,6 +10,9 @@ urlpatterns = [
     path('', include('user_profile.urls')),
 
     #main
-    path('main/', include('main.urls')),
+    path('', include('main.urls')),
+
+    #google auth
+    path("", include("allauth.urls")), 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

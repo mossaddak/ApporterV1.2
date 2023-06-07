@@ -8,6 +8,6 @@ from .views import(
 
 
 urlpatterns = [
-    path('home/', HomeView, name="home"),
+    path('', HomeView, name="home"),
     path('app/', AppView, name="app"),
 ]
