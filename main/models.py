@@ -70,8 +70,10 @@ class appkeyword_screenshot(models.Model):
         return f"{self.pk}.{self.appkeyword_id}"
 
 class campaign(models.Model):
+
     created_at = models.DateTimeField(auto_now_add=True)
-    form_id = models.TextField(blank=True, null=True)  
+    form_id = models.TextField(blank=True, null=True)
+    app_name = models.CharField(max_length=250, blank=True, null=True)
     transaction_id = models.TextField(blank=True, null=True)  
     user_id = models.TextField(blank=True, null=True)  
     status = models.TextField(blank=True, null=True)  

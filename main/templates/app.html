@@ -112,7 +112,7 @@
                     
                 {% for campaign in campaigns %}
                 <tr>
-                    <th scope="row">{{ loop.index }}</th>
+                    <td >{{ campaign.app_name }}</td>
                     <td>{{campaign.package_id}}</td>
                     <td>{{campaign.reviews_count}}</td>
                     <td>{{campaign.installs_count}}</td>
