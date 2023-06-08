@@ -78,38 +78,39 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-    //   google.charts.load('current', {'packages':['corechart']});
-    //   google.charts.setOnLoadCallback(drawVisualization);
-
-    //   function drawVisualization() {
-    //     // Some raw data (not necessarily accurate)
-    //     var data = google.visualization.arrayToDataTable([
-    //       ['Month', 'Reviews'],
-    //       ['2004/05', 938 ,],
-    //       ['2005/06', 1120,],
-    //       ['2006/07', 1167,],
-    //       ['2007/08', 1110,],
-    //       ['2008/09', 691,]
-    //     ]);
-
-    //     var options = {
-    //       title : '',
-    //       vAxis: {title: ''},
-    //       hAxis: {title: ''},
-    //       seriesType: 'bars',
-    //       series: {5: {type: 'line'}},
-    //       colors: ['#8AF08D'],
-    //       backgroundColor: '#f0f0f0'
-    //     };
-
-    //     var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-    //     chart.draw(data, options);
-    //   }
 
 
-      //for line chart
+        google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawVisualization);
 
-      google.charts.load('current', {'packages':['corechart']});
+            function drawVisualization() {
+                // Prepare the data for the bar chart
+                var data = google.visualization.arrayToDataTable([
+                    ['Date', 'Reviews'],
+                    {% for date, count in last_five_days_data.items %}
+                        ['{{ date|date:"d/M" }}', {{ count }}],
+                    {% endfor %}
+                ]);
+
+                var options = {
+                    title: '',
+                    vAxis: {title: ''},
+                    hAxis: {title: ''},
+                    seriesType: 'bars',
+                    series: {5: {type: 'line'}},
+                    colors: ['#8AF08D'],
+                    backgroundColor: '#f0f0f0'
+                };
+
+                var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+        }
+
+
+
+       //for line chart
+
+       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
@@ -155,17 +156,21 @@
 
         chart.draw(data, options);
       }
+
+
+
+
+
+
+
+  
+
     </script>
 
 {% endblock %}
 
 
 <section class="container">
-    <div class="mt-3">
-        {% for message in messages %}
-        {% include 'message.html' %}
-        {% endfor %}
-    </div>
     
 
     <div class="d-flex mt-4">
@@ -247,47 +252,6 @@
 
     <div class="bar_chart_container">
 
-        {% for data in last_five_days_data %}
-        <script type="text/javascript">
-            
-            google.charts.load('current', {'packages': ['corechart']});
-            google.charts.setOnLoadCallback(drawVisualization);
-
-            function drawVisualization() {
-                // Prepare the data for the bar chart
-                var data = google.visualization.arrayToDataTable([
-                    ['Date', 'Reviews'],
-                    {% for data in last_five_days_data %}
-                        ['{{ data.day|date:"d/M" }}', {{ data.total_reviews }}],
-                    {% endfor %}
-                ]);
-
-                var options = {
-                    title: '',
-                    vAxis: {title: ''},
-                    hAxis: {title: ''},
-                    seriesType: 'bars',
-                    series: {5: {type: 'line'}},
-                    colors: ['#8AF08D'],
-                    backgroundColor: '#f0f0f0'
-                };
-
-                var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-                chart.draw(data, options);
-            }
-
-      
-      
-            
-            
-        </script>
-      
-
-
-            <p>Date: {{ data.day|date:"d" }}/{{ data.day|date:"M" }}</p>
-            <p>Total Reviews: {{ data.total_reviews }}</p>
-        {% endfor %}
-
         <h1 class="bar_chart_heading mt-5 px-5 py-4" style="background-color: #f0f0f0;">Review Statistics</h1>
          
         <div class="d-flex justify-content-center">
@@ -307,6 +271,12 @@
             <div id="curve_chart" style="width: 100%; height: 500px"></div>
         </div>
     </div>
+
+
+    
+
+
+
     
 
     

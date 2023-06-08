@@ -175,3 +175,7 @@ AUTH_USER_MODEL = 'user_profile.User'
 
 # CLIENT_ID = "331826477403-1cbeg4htn27o3mf968gbm0s2u4m3vkfc.apps.googleusercontent.com"
 # CLIENT_SECRET = "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"
+
+
+TIME_ZONE = 'Asia/Dhaka'
+
