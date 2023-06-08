@@ -30,17 +30,37 @@ def HomeView(request):
 
     today = datetime.now().date()
     five_days_ago = today - timedelta(days=4)  # Subtract 4 days to get the range of the last 5 days
+    ten_days_ago = today - timedelta(days=9)
+    fifteen_days_ago = today - timedelta(days=14)
 
     # Retrieve the data for the last five days and calculate the total count for each day
     campaign_review_last_five = campaign_review.objects.filter(created_at__date__range=(five_days_ago, today)) \
         .values('created_at__date') \
         .annotate(total_count=Count('created_at__date'))
+    
+    appkeyword_screenshot_last_five = appkeyword_screenshot.objects.filter(created_at__date__range=(five_days_ago, today)) \
+        .values('created_at__date') \
+        .annotate(total_count=Count('created_at__date'))
+    
+    appkeyword_screenshot_last_tenresult = appkeyword_screenshot.objects.filter(created_at__date__range=(ten_days_ago, today)) \
+        .values('created_at__date') \
+        .annotate(total_count=Count('created_at__date'))
+    
+    appkeyword_screenshot_last_fiftinresult = appkeyword_screenshot.objects.filter(created_at__date__range=(fifteen_days_ago, today)) \
+        .values('created_at__date') \
+        .annotate(total_count=Count('created_at__date'))
 
     # Format the results as a dictionary mapping date to total count
     campaign_review_last_fiveresult = {entry['created_at__date']: entry['total_count'] for entry in campaign_review_last_five}
+    appkeyword_screenshot_last_fiveresult = {entry['created_at__date']: entry['total_count'] for entry in appkeyword_screenshot_last_five}
+    appkeyword_screenshot_last_tenresult = {entry['created_at__date']: entry['total_count'] for entry in appkeyword_screenshot_last_tenresult}
+    appkeyword_screenshot_last_fiftinresult = {entry['created_at__date']: entry['total_count'] for entry in appkeyword_screenshot_last_fiftinresult}
 
 
-    print("Last5===============================", campaign_review_last_fiveresult)
+
+
+
+    print("Last5===============================", appkeyword_screenshot_last_fiveresult) 
     context = {
         "app":app.objects.all(),
         'average_rating': average_rating['ratings__avg'],
@@ -48,6 +68,10 @@ def HomeView(request):
         "AllUser" : User.objects.all().count(),
         "average_rating_percentage":average_rating_percentage,
         "last_five_days_data": campaign_review_last_fiveresult,
+        "appkeyword_screenshot_last_fiveresult":appkeyword_screenshot_last_fiveresult,
+        "appkeyword_screenshot_last_tenresult":appkeyword_screenshot_last_tenresult,
+        "appkeyword_screenshot_last_fiftinresult":appkeyword_screenshot_last_fiftinresult
+        
     }
     return render(request, 'home.html', context) 
 
